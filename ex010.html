@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DETRAN</title>
+</head>
+<body>
+    <h1>Sistema de Multas</h1>
+    Velocidade do Carro: <input type="number" name="txtvel" id="txtvel"> Km/h
+    <input type="button" value=" Verificar " onclick="calcular()">
+    <div id="res">
+
+    </div>
+    <Script>
+        function calcular() {
+            var txtv = window.document.querySelector('input#txtvel') // getElementById('txtvel')
+            var res = window.document.querySelector('div#res')
+            var vel = Number(txtv.value)
+            var limite = 60
+            var ac10 = 66
+            var ac20 = 72
+            var ac50 = 90
+            res.innerHTML = `<p>Sua Velocidade atual é de <strong>${vel} Km/h</strong></p>`
+            if(vel > limite && vel < 66){
+               res.innerHTML += `<p>Você está <strong> MULTADO </strong> por excesso de velocidade!</p>`
+            }
+            if(vel >= ac10 && vel < ac20){
+                res.innerHTML += `<p>Você está <strong> MULTADO </strong> por excesso de velocidade acima de 10%. Ganhou 3 pontos na carteira!</p>`
+                }
+            if(vel >= ac20 && vel < ac50){
+                res.innerHTML += `<p>Você está <strong> MULTADO </strong> por excesso de velocidade acima de 20%. Ganhou 7 pontos na carteira!</p>`
+                    }
+            if(vel >= ac50){
+                res.innerHTML += `<p>Você está <strong> MULTADO </strong> por excesso de velocidade acima de 50%. Sua carteira foi <strong>SUSPENSA!</strong></p>`
+                        }
+            res.innerHTML += `<p>Dirija com  o cinto de Seguraça !</p>`
+
+        }
+    </Script>
+    
+</body>
+</html>
